@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<!--[if lt IE 9]><html class="lt-ie9"><![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en">
+<!--<![endif]-->
+{{> ../includes/head title="title" }}
+<body>
+  {{> ../includes/skipnav }}
+  {{> ../includes/fsa-browser-upgrade }}
+
+  {{#> header-block}}
+  <header>
+    {{> ../components/tophat/tophat }}
+    {{> ../components/header-app/header-app }}
+    {{> ../components/global-nav/global-nav }}
+  </header>
+  {{/header-block}}
+
+  <main id="main-content" tabindex="-1">
+  {{#> main-block}}
+  <!-- BASE main-block -->
+  {{/main-block}}
+  </main>
+
+  {{#> footer-block}}
+  <footer>
+    {{> ../components/footer/footer-topper }}
+    {{> ../components/footer/footer-footer }}
+    {{> ../components/footer/footer-screen-id }}
+  </footer>
+  {{/footer-block}}
+
+  {{#> hidden-block}}
+  <!-- BASE hidden-block -->
+  {{/hidden-block}}
+
+  {{#> scripts-block}}
+  <!-- BASE scripts-block -->
+  {{/scripts-block}}
+
+</body>
+
+</html>

@@ -1,0 +1,231 @@
+{{#> ../layouts/base title='Prototype Kit - FSA' }}
+
+  {{#*inline "main-block"}}
+
+    <div class="fsa-section">
+      <div class="fsa-section__bd">
+        <h1>Hello fsa-style</h1>
+        <p class="fsa-text--lead">Similique natus laborum provident porro necessitatibus, quibusdam recusandae alias delectus? Ut temporibus atque consequuntur sint saepe veritatis ab dolore voluptatum, eligendi iure!</p>
+      </div>
+    </div>
+    <div class="fsa-section">
+      <div class="fsa-section__bd">
+        <div class="fsa-content-tabs">
+          <ul class="fsa-content-tabs__list">
+            <li class="fsa-content-tabs__item">
+              <a class="fsa-content-tabs__label fsa-content-tabs__label--active" href="index.html" aria-current="true">
+                <span class="fsa-content-tabs__label-text">Employees</span>
+              </a>
+            </li>
+            <li class="fsa-content-tabs__item">
+              <a class="fsa-content-tabs__label" href="territories.html">
+                <span class="fsa-content-tabs__label-text">Territories</span>
+              </a>
+            </li>
+            <li class="fsa-content-tabs__item">
+              <a class="fsa-content-tabs__label" href="programs.html">
+                <span class="fsa-content-tabs__label-text">Programs</span>
+              </a>
+            </li>
+          </ul>
+          <div class="fsa-content-tabs__aside"></div>
+        </div>
+        <p class="fsa-m-t--l">
+          <button class="fsa-btn fsa-btn--primary" type="button" aria-expanded="false" title="Add an Employee" data-behavior="open-modal" aria-controls="UNIQUE-ID-emp-new"> Add </button>
+        </p>
+        <table class="fsa-table fsa-table--borderless fsa-table--responsive fsa-table--responsive-horizontal">
+          <caption class="sr-only">Employees</caption>
+          <thead>
+            <tr>
+              <th scope="col" class="fsa-table__th--sticky" aria-sort="ascending"><button class="fsa-table__sort fsa-table__sort--ascending" type="button">ID</button></th>
+              <th scope="col" class="fsa-table__th--sticky"><button class="fsa-table__sort" type="button">First Name</button></th>
+              <th scope="col" class="fsa-table__th--sticky"><button class="fsa-table__sort" type="button">Last Name</button></th>
+              <th scope="col" class="fsa-table__th--sticky"><button class="fsa-table__sort" type="button">Job Title</button></th>
+              <th scope="col" class="fsa-table__th--sticky"><button class="fsa-table__sort" type="button">Hire Date</button></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th aria-label="ID" scope="row"><button type="button" class="fsa-btn fsa-btn--flat" data-behavior="open-modal" aria-controls="UNIQUE-ID-emp-detail" aria-expanded="false">11211</button></th>
+              <td aria-label="First Name" scope="row">Jimmy</td>
+              <td aria-label="Last Name" scope="row">McNulty</td>
+              <td aria-label="Job Title" scope="row">Patrol Officer</td>
+              <td aria-label="Hire Date" scope="row"><time datetime="1991-09-01">1991-09-01</time></td>
+            </tr>
+            <tr id="UNIQUE-ID__employee-56190">
+              <th aria-label="ID" scope="row"><button type="button" class="fsa-btn fsa-btn--flat" data-behavior="open-modal" aria-controls="UNIQUE-ID-emp-detail" aria-expanded="false">56190</button></th>
+              <td aria-label="First Name" scope="row">Stringer</td>
+              <td aria-label="Last Name" scope="row">Bell</td>
+              <td aria-label="Job Title" scope="row">Lieutenant</td>
+              <td aria-label="Hire Date" scope="row"><time datetime="2000-06-01">2000-06-01</time></td>
+            </tr>
+            <tr>
+              <th aria-label="ID" scope="row"><button type="button" class="fsa-btn fsa-btn--flat" data-behavior="open-modal" aria-controls="UNIQUE-ID-emp-detail" aria-expanded="false">78451</button></th>
+              <td aria-label="First Name" scope="row">Lestor</td>
+              <td aria-label="Last Name" scope="row">Freamon</td>
+              <td aria-label="Job Title" scope="row">Major Case Unit Detective</td>
+              <td aria-label="Hire Date" scope="row"><time datetime="1975-12-05">1975-12-05</time></td>
+            </tr>
+            <tr>
+              <th aria-label="ID" scope="row"><button type="button" class="fsa-btn fsa-btn--flat" data-behavior="open-modal" aria-controls="UNIQUE-ID-emp-detail" aria-expanded="false">84200</button></th>
+              <td aria-label="First Name" scope="row">Cedris</td>
+              <td aria-label="Last Name" scope="row">Daniels</td>
+              <td aria-label="Job Title" scope="row">Deputy Commissioner</td>
+              <td aria-label="Hire Date" scope="row"><time datetime="1985-11-29">1985-11-29</time></td>
+            </tr>
+            <tr>
+              <th aria-label="ID" scope="row"><button type="button" class="fsa-btn fsa-btn--flat" data-behavior="open-modal" aria-controls="UNIQUE-ID-emp-detail" aria-expanded="false">88892</button></th>
+              <td aria-label="First Name" scope="row">Francis</td>
+              <td aria-label="Last Name" scope="row">Sobotka</td>
+              <td aria-label="Job Title" scope="row">Union Secretary</td>
+              <td aria-label="Hire Date" scope="row"><time datetime="2015-01-20">2015-01-20</time></td>
+            </tr>
+            <tr id="UNIQUE-ID__employee-88893" hidden="true">
+              <th aria-label="ID" scope="row"><button type="button" class="fsa-btn fsa-btn--flat" data-behavior="open-modal" aria-controls="UNIQUE-ID-emp-detail" aria-expanded="false">88893</button></th>
+              <td aria-label="First Name" scope="row">Omar</td>
+              <td aria-label="Last Name" scope="row">Little</td>
+              <td aria-label="Job Title" scope="row">Independent Consultant</td>
+              <td aria-label="Hire Date" scope="row"><time datetime="2015-01-20">2004-10-01</time></td>
+            </tr>
+            <tr>
+              <th aria-label="ID" scope="row"><button type="button" class="fsa-btn fsa-btn--flat" data-behavior="open-modal" aria-controls="UNIQUE-ID-emp-detail" aria-expanded="false">[#####]</button></th>
+              <td aria-label="First Name" scope="row">[first_name]</td>
+              <td aria-label="Last Name" scope="row">[last_name]</td>
+              <td aria-label="Job Title" scope="row">[position]</td>
+              <td aria-label="Hire Date" scope="row"><time datetime="yyyy-mm-dd">[yyyy-mm-dd]</time></td>
+            </tr>
+            <tr>
+              <th aria-label="ID" scope="row"><button type="button" class="fsa-btn fsa-btn--flat" data-behavior="open-modal" aria-controls="UNIQUE-ID-emp-detail" aria-expanded="false">[#####]</button></th>
+              <td aria-label="First Name" scope="row">[first_name]</td>
+              <td aria-label="Last Name" scope="row">[last_name]</td>
+              <td aria-label="Job Title" scope="row">[position]</td>
+              <td aria-label="Hire Date" scope="row"><time datetime="yyyy-mm-dd">[yyyy-mm-dd]</time></td>
+            </tr>
+            <tr>
+              <th aria-label="ID" scope="row"><button type="button" class="fsa-btn fsa-btn--flat" data-behavior="open-modal" aria-controls="UNIQUE-ID-emp-detail" aria-expanded="false">[#####]</button></th>
+              <td aria-label="First Name" scope="row">[first_name]</td>
+              <td aria-label="Last Name" scope="row">[last_name]</td>
+              <td aria-label="Job Title" scope="row">[position]</td>
+              <td aria-label="Hire Date" scope="row"><time datetime="yyyy-mm-dd">[yyyy-mm-dd]</time></td>
+            </tr>
+            <tr>
+              <th aria-label="ID" scope="row"><button type="button" class="fsa-btn fsa-btn--flat" data-behavior="open-modal" aria-controls="UNIQUE-ID-emp-detail" aria-expanded="false">[#####]</button></th>
+              <td aria-label="First Name" scope="row">[first_name]</td>
+              <td aria-label="Last Name" scope="row">[last_name]</td>
+              <td aria-label="Job Title" scope="row">[position]</td>
+              <td aria-label="Hire Date" scope="row"><time datetime="yyyy-mm-dd">[yyyy-mm-dd]</time></td>
+            </tr>
+            <tr>
+              <th aria-label="ID" scope="row"><button type="button" class="fsa-btn fsa-btn--flat" data-behavior="open-modal" aria-controls="UNIQUE-ID-emp-detail" aria-expanded="false">[#####]</button></th>
+              <td aria-label="First Name" scope="row">[first_name]</td>
+              <td aria-label="Last Name" scope="row">[last_name]</td>
+              <td aria-label="Job Title" scope="row">[position]</td>
+              <td aria-label="Hire Date" scope="row"><time datetime="yyyy-mm-dd">[yyyy-mm-dd]</time></td>
+            </tr>
+            <tr>
+              <th aria-label="ID" scope="row"><button type="button" class="fsa-btn fsa-btn--flat" data-behavior="open-modal" aria-controls="UNIQUE-ID-emp-detail" aria-expanded="false">[#####]</button></th>
+              <td aria-label="First Name" scope="row">[first_name]</td>
+              <td aria-label="Last Name" scope="row">[last_name]</td>
+              <td aria-label="Job Title" scope="row">[position]</td>
+              <td aria-label="Hire Date" scope="row"><time datetime="yyyy-mm-dd">[yyyy-mm-dd]</time></td>
+            </tr>
+            <tr>
+              <th aria-label="ID" scope="row"><button type="button" class="fsa-btn fsa-btn--flat" data-behavior="open-modal" aria-controls="UNIQUE-ID-emp-detail" aria-expanded="false">[#####]</button></th>
+              <td aria-label="First Name" scope="row">[first_name]</td>
+              <td aria-label="Last Name" scope="row">[last_name]</td>
+              <td aria-label="Job Title" scope="row">[position]</td>
+              <td aria-label="Hire Date" scope="row"><time datetime="yyyy-mm-dd">[yyyy-mm-dd]</time></td>
+            </tr>
+            <tr>
+              <th aria-label="ID" scope="row"><button type="button" class="fsa-btn fsa-btn--flat" data-behavior="open-modal" aria-controls="UNIQUE-ID-emp-detail" aria-expanded="false">[#####]</button></th>
+              <td aria-label="First Name" scope="row">[first_name]</td>
+              <td aria-label="Last Name" scope="row">[last_name]</td>
+              <td aria-label="Job Title" scope="row">[position]</td>
+              <td aria-label="Hire Date" scope="row"><time datetime="yyyy-mm-dd">[yyyy-mm-dd]</time></td>
+            </tr>
+            <tr>
+              <th aria-label="ID" scope="row"><button type="button" class="fsa-btn fsa-btn--flat" data-behavior="open-modal" aria-controls="UNIQUE-ID-emp-detail" aria-expanded="false">[#####]</button></th>
+              <td aria-label="First Name" scope="row">[first_name]</td>
+              <td aria-label="Last Name" scope="row">[last_name]</td>
+              <td aria-label="Job Title" scope="row">[position]</td>
+              <td aria-label="Hire Date" scope="row"><time datetime="yyyy-mm-dd">[yyyy-mm-dd]</time></td>
+            </tr>
+            <tr>
+              <th aria-label="ID" scope="row"><button type="button" class="fsa-btn fsa-btn--flat" data-behavior="open-modal" aria-controls="UNIQUE-ID-emp-detail" aria-expanded="false">[#####]</button></th>
+              <td aria-label="First Name" scope="row">[first_name]</td>
+              <td aria-label="Last Name" scope="row">[last_name]</td>
+              <td aria-label="Job Title" scope="row">[position]</td>
+              <td aria-label="Hire Date" scope="row"><time datetime="yyyy-mm-dd">[yyyy-mm-dd]</time></td>
+            </tr>
+            <tr>
+              <th aria-label="ID" scope="row"><button type="button" class="fsa-btn fsa-btn--flat" data-behavior="open-modal" aria-controls="UNIQUE-ID-emp-detail" aria-expanded="false">[#####]</button></th>
+              <td aria-label="First Name" scope="row">[first_name]</td>
+              <td aria-label="Last Name" scope="row">[last_name]</td>
+              <td aria-label="Job Title" scope="row">[position]</td>
+              <td aria-label="Hire Date" scope="row"><time datetime="yyyy-mm-dd">[yyyy-mm-dd]</time></td>
+            </tr>
+            <tr>
+              <th aria-label="ID" scope="row"><button type="button" class="fsa-btn fsa-btn--flat" data-behavior="open-modal" aria-controls="UNIQUE-ID-emp-detail" aria-expanded="false">[#####]</button></th>
+              <td aria-label="First Name" scope="row">[first_name]</td>
+              <td aria-label="Last Name" scope="row">[last_name]</td>
+              <td aria-label="Job Title" scope="row">[position]</td>
+              <td aria-label="Hire Date" scope="row"><time datetime="yyyy-mm-dd">[yyyy-mm-dd]</time></td>
+            </tr>
+            <tr>
+              <th aria-label="ID" scope="row"><button type="button" class="fsa-btn fsa-btn--flat" data-behavior="open-modal" aria-controls="UNIQUE-ID-emp-detail" aria-expanded="false">[#####]</button></th>
+              <td aria-label="First Name" scope="row">[first_name]</td>
+              <td aria-label="Last Name" scope="row">[last_name]</td>
+              <td aria-label="Job Title" scope="row">[position]</td>
+              <td aria-label="Hire Date" scope="row"><time datetime="yyyy-mm-dd">[yyyy-mm-dd]</time></td>
+            </tr>
+            <tr>
+              <th aria-label="ID" scope="row"><button type="button" class="fsa-btn fsa-btn--flat" data-behavior="open-modal" aria-controls="UNIQUE-ID-emp-detail" aria-expanded="false">[#####]</button></th>
+              <td aria-label="First Name" scope="row">[first_name]</td>
+              <td aria-label="Last Name" scope="row">[last_name]</td>
+              <td aria-label="Job Title" scope="row">[position]</td>
+              <td aria-label="Hire Date" scope="row"><time datetime="yyyy-mm-dd">[yyyy-mm-dd]</time></td>
+            </tr>
+            <tr>
+              <th aria-label="ID" scope="row"><button type="button" class="fsa-btn fsa-btn--flat" data-behavior="open-modal" aria-controls="UNIQUE-ID-emp-detail" aria-expanded="false">[#####]</button></th>
+              <td aria-label="First Name" scope="row">[first_name]</td>
+              <td aria-label="Last Name" scope="row">[last_name]</td>
+              <td aria-label="Job Title" scope="row">[position]</td>
+              <td aria-label="Hire Date" scope="row"><time datetime="yyyy-mm-dd">[yyyy-mm-dd]</time></td>
+            </tr>
+          </tbody>
+        </table>
+        <nav aria-label="Pagination">
+          <div class="fsa-pagination" data-current="1" data-total="120">
+            <ul class="fsa-pagination__list">
+              <li class="fsa-pagination__item fsa-pagination__item--previous" aria-hidden="true">
+                <span class="fsa-pagination__label fsa-pagination__label--previous fsa-pagination__label--disabled">Previous</span>
+              </li>
+              <li class="fsa-pagination__item">
+                <span class="fsa-pagination__label fsa-pagination__label--current" aria-current="true">1</span>
+              </li>
+              <li class="fsa-pagination__item">
+                <a class="fsa-pagination__label" href="link.html">2</a>
+              </li>
+              <li class="fsa-pagination__item" aria-hidden="true">
+                <span class="fsa-pagination__label">…</span>
+              </li>
+              <li class="fsa-pagination__item">
+                <a class="fsa-pagination__label" href="link.html">120</a>
+              </li>
+              <li class="fsa-pagination__item fsa-pagination__item--next">
+                <a class="fsa-pagination__label fsa-pagination__label--next" href="link.html">Next</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </div>
+  {{/inline}}
+
+  {{#*inline "hidden-block"}}
+    <!-- HIDDEN - FOR MODALS/GROWL CONTENT -->
+    {{> ../includes/hidden }}
+    <!-- /HIDDEN -->
+  {{/inline}}
+
+{{/../layouts/base }}

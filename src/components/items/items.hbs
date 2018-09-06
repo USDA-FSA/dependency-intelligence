@@ -1,0 +1,30 @@
+<ul>
+  <li>
+    <strong>Item 1</strong> is
+    {{> ../components/label/label
+      LABEL="In Progress"
+      VARIATION="general"
+      LARGE=""
+      CLASS_EXTRA="fic-label"
+      ATTR_TITLE="Currently being worked on"
+    }}
+  </li>
+  <li>
+    <strong>Item 2</strong> is
+    {{> ../components/label/label
+      LABEL="Done"
+      VARIATION="success"
+      LARGE="true"
+      CLASS_EXTRA=""
+      ATTR_TITLE="No more work to be done"
+    }}
+  </li>
+  <li>
+    <strong>Item 3</strong> is
+    {{> ../components/label/label
+      LABEL="Broken"
+      VARIATION="alert"
+      ATTR_TITLE="Something is wrong, better fix it"
+    }}
+  </li>
+</ul>

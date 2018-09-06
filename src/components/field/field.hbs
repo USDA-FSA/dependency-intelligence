@@ -1,0 +1,24 @@
+<div class="fsa-field {{#if ERROR}}fsa-field--error{{/if}} {{ CLASS_EXTRA }}">
+  <label class="fsa-field__label" for="{{ ID }}">
+    {{ LABEL }}
+    {{#if LABEL_DESC}}
+    <span class="fsa-field__label-desc">{{ LABEL_DESC }}</span>
+    {{/if}}
+  </label>
+  <input
+    class="fsa-input fsa-field__item"
+    {{#if BEHAVIOR}}data-behavior="{{ BEHAVIOR }}"{{/if}}
+    value="{{ INPUT_VALUE }}"
+    id="{{ ID }}"
+    name="{{ ID }}"
+    type="text"
+    {{#if MESSAGE}}aria-describedby="{{ ID }}__error-message"{{/if}}
+    {{#if REQUIRED}}required="required" aria-required="true"{{/if}}
+  >
+  {{#if HELP}}
+  <span class="fsa-field__help">{{ HELP }}</span>
+  {{/if}}
+  {{#if MESSAGE}}
+  <span class="fsa-field__message" id="{{ ID }}__error-message" role="alert">{{ MESSAGE }}</span>
+  {{/if}}
+</div>
