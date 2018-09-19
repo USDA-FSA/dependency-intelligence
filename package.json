@@ -18,6 +18,7 @@
     "Francis Rupert <France.Rupert@gmail.com> (https://github.com/francisrupert)"
   ],
   "devDependencies": {
+    "angular": "^1.7.4",
     "autoprefixer": "^8.6.0",
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.4",
@@ -51,6 +52,8 @@
     "webpack-merge": "^4.1.2"
   },
   "dependencies": {
+    "@angular/cli": "^6.2.2",
+    "global": "^4.3.2",
     "html-beautify-webpack-plugin": "^1.0.5",
     "pixrem": "^4.0.1"
   }
