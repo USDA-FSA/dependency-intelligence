@@ -1,0 +1,56 @@
+
+.dit-data-box {
+
+    $box-bgcolor-default: $white;
+    $box-border-color: $color-fsa-tertiary-200;
+    $box-padding: $size-medium;
+    margin: 1rem 0;
+    height: 90%;
+  
+    & {
+      border: 1px solid #E0E0E0;
+      background-color: $box-bgcolor-default;
+      padding: $box-padding;
+    }
+  
+    &__hd {}
+  
+    &__bd {
+      > :first-child {
+        margin-top: 0;
+      }
+      > :last-child {
+        margin-bottom: 0;
+      }
+
+      &--lg{
+        font-size: $fsa-text-size--6;
+        font-weight: $font-semi-bold;
+      }
+    }
+  
+    &__ft {}
+  
+    &__title {
+      font-size: 1em;
+      font-weight: 700;
+      font-family: $font-sans;
+      margin-top: 0;
+      padding: $size-small 0;
+      border-bottom: 1px solid #E0E0E0;
+    }
+  
+    &__content {
+  
+      position: relative;
+      font-size: 1.3em;
+      padding: $size-small 0;
+      background-color: $color-fsa-site-bg;
+      background-clip: padding-box;
+      /*box-shadow: 0 $size-default $size-default 0 rgba(0, 0, 0, .25);*/
+      margin-bottom: $size-small;
+  
+    }
+  
+  }
+  

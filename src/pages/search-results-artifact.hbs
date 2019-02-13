@@ -1,0 +1,194 @@
+{{#> ../layouts/base title='Search Results - DIT' }}
+
+  {{#*inline "main-block"}}
+
+    <div class="fsa-section">
+      <div class="fsa-section__bd">
+        <h1>New Portfolio Search</h1>
+        
+        {{> ../components/search-bar/search-bar useButtonGroup=true setArt="fsa-btn-group__item--active" }}
+				
+      </div>
+    </div>
+    <div class="fsa-section">
+      <div class="fsa-section__bd">
+        
+        <div class="fsa-section__bd">
+            <h2>Results - Artifacts</h2>
+            <div class="fsa-grid">
+							
+							<div class="fsa-grid__1/1 fsa-grid__1/2@m">
+								<select class="fsa-select" name="Options lorem">
+									<option value="Option A" selected="selected">Sort by</option>
+									<option value="Option B">Risk Score</option>
+									<option value="Option D">Name Alphabetical</option>
+									<option value="Option C"># of Vulnerabilities</option>
+								</select>
+							
+								<select class="fsa-select" name="Options lorem">
+									<option value="Option A" selected="selected">Filter by</option>
+									<option value="Option B">Option One</option>
+									<option value="Option D">Option Two</option>
+									<option value="Option C">Option Three</option>
+								</select>
+							</div>
+
+					</div>
+
+
+
+					<table class="fsa-table fsa-table--borderless fsa-table--responsive fsa-table--responsive-horizontal fsa-table fsa-table--middle fsa-table--fixed">
+						<thead>
+							<tr>
+								<th aria-sort="descending" scope="col">
+									<button class="fsa-table__sort fsa-table__sort--descending" type="button">Group ID</button>
+								</th>
+								<th scope="col">
+									<button class="fsa-table__sort" type="button">Artifact ID</button>
+								</th>
+								<th scope="col">
+									<button class="fsa-table__sort" type="button">Version</button>
+								</th>
+								
+								<th scope="col">
+									<button class="fsa-table__sort" type="button">Children</button>
+								</th>
+								<th scope="col">
+									<button class="fsa-table__sort" type="button">Risk Score</button>
+								</th>
+
+								<!--<th class="fsa-text-align--right" scope="col">Actions</th>-->
+								
+							</tr>
+						</thead>
+						<tbody>
+
+							<tr>
+								<td>
+									<a href="artifact-details.html?a=springframework">
+									org.springframework </a>
+								</td>
+								<td>spring-core</td>
+								<td>5.0.6.RELEASE</td>
+								
+								<td>47</td>
+								<td>
+									<span class="fsa-label fsa-label--large fsa-label--alert">1152</span>
+								</td>
+								<!--
+								<td>
+									<a class="fsa-btn fsa-btn--secondary" type="button" href="artifact-details.html?a=org.springframework">
+									Vulnerabilities: 2 </a>
+								</td>
+								-->
+							</tr>
+							<tr>
+								<td>
+									<a href="artifact-details.html?a=multimodule-root.project">
+									multimodule-root.project </a>
+								</td>
+								<td>multimodule-servlets</td>
+								<td>1.0</td>
+								
+								<td>12</td>
+								<td>
+									<span class="fsa-label fsa-label--large fsa-label--warning">461</span>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<a href="artifact-details.html?a=org.flywaydb">
+									org.flywaydb </a>
+								</td>
+								<td>flyway-core</td>
+								<td>5.0.7</td>
+								
+								<td>22</td>
+								<td>
+									<span class="fsa-label fsa-label--large fsa-label--warning">380</span>
+								</td>
+							</tr>
+						
+							<tr>
+								<td>
+									<a href="artifact-details.html?a=net.minidev">
+									net.minidev </a>
+								</td>
+								<td>accessors-smart</td>
+								<td>1.1</td>
+								
+								<td>105</td>
+								<td>
+									<span class="fsa-label fsa-label--large fsa-label--success">2</span>
+								</td>
+							</tr>
+							
+							<tr>
+								<td>
+									<a href="artifact-details.html?a=org.codehaus.mojo.signature">
+									org.codehaus.mojo.signature </a>
+								</td>
+								<td>java16</td>
+								<td>1.1</td>
+								
+								<td>240</td>
+								<td>
+									<span class="fsa-label fsa-label--large fsa-label--success">30</span>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<a href="artifact-details.html?a=multimodule-root.project">
+									multimodule-root.project </a>
+								</td>
+								<td>multimodule-ejbs</td>
+								<td>1.0</td>
+								
+								<td>5</td>
+								<td>
+									<span class="fsa-label fsa-label--large fsa-label--warning">111</span>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<a href="artifact-details.html?a=xml-apis"> xml-apis </a>
+								</td>
+								<td>xml-apis</td>
+								<td>1.0.b2</td>
+								
+								<td>25</td>
+								<td>
+									<span class="fsa-label fsa-label--large fsa-label--alert">986</span>
+								</td>
+							</tr>
+							
+							<tr>
+								<td>
+									<a href="artifact-details.html?a=tomcat"> tomcat </a>
+								</td>
+								<td>catalina</td>
+								<td>5.5.23</td>
+								
+								<td>254</td>
+								<td>
+									<span class="fsa-label fsa-label--large">44</span>
+								</td>
+							</tr>
+						</tbody>
+					</table></div>
+        
+				
+				{{> ../components/pagination/pagination }}
+
+
+      </div>
+    </div>
+  {{/inline}}
+
+  {{#*inline "hidden-block"}}
+    <!-- HIDDEN - FOR MODALS/GROWL CONTENT -->
+    
+    <!-- /HIDDEN -->
+  {{/inline}}
+
+{{/../layouts/base }}

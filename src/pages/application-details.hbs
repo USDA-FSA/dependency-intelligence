@@ -1,0 +1,198 @@
+{{#> ../layouts/base title='Artifact Details - DIT' }}
+
+  {{#*inline "main-block"}}
+
+    <div class="fsa-section">
+      <div class="fsa-section__bd">
+        <h1>Application Details</h1>
+
+				
+			</div>
+		</div>
+
+		<div class="fsa-section">
+      <div class="fsa-section__bd">
+					<table class="fsa-table fsa-table--borderless fsa-table--responsive fsa-table--responsive-horizontal fsa-table fsa-table--middle fsa-table--fixed">
+						<thead>
+							<tr>
+								<th aria-sort="descending" scope="col">
+									Name
+								</th>
+								<th scope="col">
+									Version
+								</th>
+								<th scope="col">
+									Risk Score
+								</th>
+								<th scope="col">
+									Ownership
+								</th>								
+							</tr>
+						</thead>
+						<tbody>
+
+							<tr>
+								<td>
+									PCP II
+								</td>
+								<td>1.7.2</td>
+								<td>
+									<span class="fsa-label fsa-label--large">175</span>
+								</td>
+								<td>
+									FPAC
+								</td>
+							</tr>
+						</tbody>
+					</table>
+
+				</div>
+      </div>
+    </div>
+
+		<div class="fsa-section">
+			<div class="fsa-section__bd">
+				<div class="fsa-grid">
+					<div class="fsa-grid__1/1">
+						<div class="dit-data-box">
+							<div class="dit-data-box__title">Description</div>
+							<div class="dit-data-box__bd">
+								<p>
+									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis a arcu ullamcorper, blandit nulla in, convallis elit. Maecenas sed nulla laoreet mi aliquet viverra ac in libero. Fusce eleifend ultricies lacus, in tempus turpis lacinia nec. In non dui ligula. Ut gravida ac elit quis convallis. Phasellus nisl enim, dapibus tincidunt mi posuere, ullamcorper dapibus risus. Integer ultrices lectus condimentum tellus elementum, sit amet facilisis velit sagittis. Quisque dignissim eu est mattis blandit.
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+
+		<div class="fsa-section">
+			<div class="fsa-section__bd">
+				<div class="fsa-grid">
+					<div class="fsa-grid__1/1">
+						<div class="dit-data-box">
+							<div class="dit-data-box__title">Notes</div>
+							<div class="dit-data-box__bd">
+								<p>
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis a arcu ullamcorper, blandit nulla in, convallis elit. Maecenas sed nulla laoreet mi aliquet viverra ac in libero. Fusce eleifend ultricies lacus, in tempus turpis lacinia nec. In non dui ligula. Ut gravida ac elit quis convallis.
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+
+		<div class="fsa-section">
+			<div class="fsa-section__bd">
+				<button class="fsa-btn fsa-btn--secondary" data-behavior="open-modal" aria-controls="UNIQUE-ID-MODAL-EDIT-APPLICATION" aria-expanded="false">Edit Vulnerablities</button>
+				<button class="fsa-btn fsa-btn--secondary">Associate Artifacts</button>
+
+			</div>
+		</div>
+
+		<div class="fsa-section">
+      <div class="fsa-section__bd">
+        
+        <div class="fsa-section__bd">
+            <h2>Application Vulnerabilities</h2>
+            
+
+
+
+					<table class="fsa-table fsa-table--borderless fsa-table--responsive fsa-table--responsive-horizontal fsa-table fsa-table--middle fsa-table--fixed">
+						<thead>
+							<tr>
+								<th aria-sort="descending" scope="col">
+									<button class="fsa-table__sort fsa-table__sort--descending" type="button">Name</button>
+								</th>
+								<th scope="col">
+									<button class="fsa-table__sort" type="button">Published</button>
+								</th>
+								<th scope="col">
+									<button class="fsa-table__sort" type="button">CWE</button>
+								</th>
+								<th scope="col">
+									<button class="fsa-table__sort" type="button">Severity</button>
+								</th>
+								<th class="fsa-text-align--right" scope="col">Actions</th>
+
+							</tr>
+						</thead>
+						<tbody>
+
+							<tr>
+								<td>
+									CVE-2017-5001
+								</td>
+								<td>07/06/2017</td>
+								<td>CWE-200 Information Exposure</td>
+								<td>
+									<span class="fsa-label fsa-label--warning fsa-label--large">Medium</span>
+								</td>
+								<td>
+									<a class="fsa-btn fsa-btn--secondary" type="button" href="https://nvd.nist.gov/vuln/detail/CVE-2017-5001" target="_blank">
+									More Details</a>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									CVE-2017-5002
+								</td>
+								<td>07/06/2017</td>
+								<td>CWE-601 URL Redirection to Untrusted Site</td>
+								<td>
+									<span class="fsa-label fsa-label--warning fsa-label--large">Medium</span>
+								</td>
+								<td>
+									<a class="fsa-btn fsa-btn--secondary" type="button" href="https://nvd.nist.gov/vuln/detail/CVE-2017-5002" target="_blank">
+									More Details</a>
+								</td>
+							</tr>
+
+							<tr>
+								<td>
+									CVE-2017-5004
+								</td>
+								<td>07/06/2017</td>
+								<td>CWE-601 URL Redirection to Untrusted Site</td>
+								<td>
+									<span class="fsa-label fsa-label--alert fsa-label--large">Critical</span>
+								</td>
+								<td>
+									<a class="fsa-btn fsa-btn--secondary" type="button" href="https://nvd.nist.gov/vuln/detail/CVE-2017-5004" target="_blank">
+									More Details</a>
+								</td>
+							</tr>
+
+							<tr>
+								<td>
+									CVE-2017-5010
+								</td>
+								<td>02/17/2017</td>
+								<td>CWE-119 Improper Restriction of Operations within the Bound of a Memory Buffer</td>
+								<td>
+									<span class="fsa-label fsa-label--warning fsa-label--large">Medium</span>
+								</td>
+								<td>
+									<a class="fsa-btn fsa-btn--secondary" type="button" href="https://nvd.nist.gov/vuln/detail/CVE-2017-5010" target="_blank"">
+									More Details</a>
+								</td>
+							</tr>
+						
+						</tbody>
+					</table>
+				</div>
+
+  {{/inline}}
+
+  {{#*inline "hidden-block"}}
+    <!-- HIDDEN - FOR MODALS/GROWL CONTENT -->
+    {{> ../includes/modal-edit-application }}
+    <!-- /HIDDEN -->
+  {{/inline}}
+
+{{/../layouts/base }}

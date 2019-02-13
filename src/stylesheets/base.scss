@@ -1,1 +1,13 @@
 /* Project specific overrides/additions */
+
+// Relative font and image file paths
+//$font-path:   '../fonts' !default;
+//$image-path:  '../img' !default;
+
+// core
+@import './variables.scss';
+@import './utilities.scss';
+
+// components
+@import './components/dit.data-box.scss';
+//@import './components/fsa.search.scss';

@@ -1,184 +1,93 @@
 
-$('body').on('change', '[data-behavior~="inspections-filter"]', function(event) {
-
-  var $self = $(this);
-  var $target = $('#' + $self.attr('data-filter-target'))
-  var newStatus = $self.val();
-
-  $target
-    .removeClass('fic-inspections--status-filter-is-all fic-inspections--status-filter-is-complete fic-inspections--status-filter-is-assigned fic-inspections--status-filter-is-not-started fic-inspections--status-filter-is-in-progress fic-inspections--status-filter-is-rejected ')
-    .addClass('fic-inspections--status-filter-' + newStatus)
-  ;
-
-  if ($target.hasClass('fic-inspections--status-filter-is-all')) {
-    $('#inspections-pagination').removeAttr('hidden');
+var qs = (function(a) {
+  if (a == "") return {};
+  var b = {};
+  for (var i = 0; i < a.length; ++i)
+  {
+      var p=a[i].split('=', 2);
+      if (p.length == 1)
+          b[p[0]] = "";
+      else
+          b[p[0]] = decodeURIComponent(p[1].replace(/\+/g, " "));
   }
-  else {
-    $('#inspections-pagination').attr('hidden', 'true');
-  }
+  return b;
+})(window.location.search.substr(1).split('&'));
 
-})
 
-$('body').on('change', '[data-behavior~="inspections-assignee-filter"]', function(event) {
+window.addEventListener("load",function() {
+  
 
-  var $self = $(this);
-  var $target = $('#' + $self.attr('data-filter-target'))
-  var $targetRows = $target.find('[data-assignee]')
-  var newAssignee = $self.val();
-  var $newAssigneeRow = $('[data-assignee="' + newAssignee + '"]')
+//
+// Below is code to run the search functionality to demonstrate process flow
+//
 
-  $targetRows.removeAttr('data-filtered-by-assignee data-not-filtered-by-assignee');
-  $newAssigneeRow.attr('data-filtered-by-assignee', true)
+  var searchType = "";
 
-  var $notAssignedRows = $target.find('.fic-inspections__tbody tr:not([data-filtered-by-assignee])')
+  // create an object from the Button Group component
+  var btnGroup = document.getElementById('buttonGroupSearchType');
+  btnGroup.value = null;
+  
+  // Button Group method to reset button to default values
+  btnGroup.setButtonsDefault = function(e){
+    var btns = btnGroup.getElementsByTagName('button');
+    var i,b;
+    for (i=0; i < btns.length; i++){
+      b = btns[i];
+      b.classList.remove('fsa-btn-group__item--active');
+      b.setAttribute('aria-selected', false);
+    }
+  };
 
-  $notAssignedRows.attr('data-not-filtered-by-assignee', true);
+  // Button Group method to SET value of group
+  btnGroup.setValue = function(v){
+    btnGroup.value = v;
+  };
 
-  if (newAssignee == 'assignedto-all') {
-    $notAssignedRows.removeAttr('data-filtered-by-assignee data-not-filtered-by-assignee');
-  }
+  // Button Group method to GET value of group
+  btnGroup.getValue = function(){
+    return btnGroup.value;
+  };
 
-})
+  // Since the handlebars templating engine is not connected to this code, the below
+  // will check if button group component is being used before trying to code to its object.
 
-$('body').on('change', '[data-behavior~="inspections-count-filter"]', function(event) {
+  if(btnGroup){
+      
+    var btns = btnGroup.getElementsByTagName('button');
+  
+    var i,b;
 
-  var $self = $(this);
-  var $component = $('#' + $self.attr('data-filter-target'))
+    for (i=0; i < btns.length; i++){
+      b = btns[i];
 
-  var $inspectionRowsHidden = $component.find('.fic-inspections__row:not(:hidden)');
-  var $inspectionNoResults = $component.find('.fic-inspections__tfoot');
+      // button click event handler that sets selected button and styles it
+      b.addEventListener('click', function(e){
 
-  console.log('Number of viewable rows: ' + $inspectionRowsHidden.length);
+        btnGroup.setButtonsDefault();
+        btnGroup.setValue( e.target.dataset.val );
+        e.target.classList.add('fsa-btn-group__item--active');
+        e.target.setAttribute('aria-selected', true);
 
-  if ($inspectionRowsHidden.length == '0') {
-    $inspectionNoResults.removeAttr('hidden')
-  }
-  else {
-    $inspectionNoResults.attr('hidden', true)
-  }
+      });
 
-  if ($inspectionRowsHidden.length < 20) {
-    $('#inspections-pagination').attr('hidden', true);
-  }
-  if ($inspectionRowsHidden.length >= 20) {
-    $('#inspections-pagination').removeAttr('hidden');
-  }
-
-  if ($inspectionRowsHidden.length >= 20) {
-    $('#inspections-amt').html('1-20');
-  }
-  if ($inspectionRowsHidden.length < 20) {
-    $('#inspections-amt').html($inspectionRowsHidden.length);
-  }
-
-})
-
-$('body').on('change', '[data-behavior~="inspections-select-row"]', function(event) {
-
-  var $self = $(this);
-  var $row = $self.closest('.fic-inspections__row');
-
-  $row.toggleClass('fic-inspections__row--selected');
-
-})
-
-$('body').on('change', '[data-behavior~="inspections-toggle-header"]', function(event) {
-
-  var $self = $(this);
-
-  $('#fic-inspection-hd__list-header').attr('hidden', true);
-  $('#fic-inspection-hd__triage').removeAttr('hidden');
-
-})
-
-$('body').on('change', '[data-behavior~="inspections-select-all"]', function(event) {
-
-  var $self = $(this);
-  var $row = $self.closest('.fic-inspections__row--thead');
-  var $table = $self.closest('.fic-inspections');
-  var $rowsAll = $table.find('.fic-inspections__row:not([data-status="is-complete"])');
-  var $rowsAllChecks = $rowsAll.find('.fsa-checkbox:not([disabled])');
-  var isChecked = $self.is(':checked');
-
-  if(isChecked) {
-    $rowsAll.addClass('fic-inspections__row--selected');
-    $rowsAllChecks.prop('checked', true);
-  }
-  else {
-    $rowsAll.removeClass('fic-inspections__row--selected');
-    $rowsAllChecks.prop('checked', false);
+    }
   }
 
-  return false;
+  // code used to intercept form submission and grab search type value from component that is used
+  document.getElementById('searchForm').addEventListener("submit", function(e) {
+    e.preventDefault(); // before the code
+    /* do what you want with the form */
 
-})
+    var s = document.getElementById('selectSearchType');
+    if( s && s.options[s.selectedIndex].value != "" ){
+      searchType = s.options[s.selectedIndex].value;
+    } else {
+      searchType = btnGroup.getValue();
+    }
 
-$('body').on('change', '[data-behavior~="enable-field"]', function(event) {
+    window.location = searchType + ".html";
+    // Should be triggered on form submit
+    
+  });
 
-  var $self = $(this);
-  var $target = $($self.data('enable-target'));
-
-  setTimeout(function () {
-    $target.removeAttr('disabled');
-  }, 4000);
-
-})
-
-$('body').on('change', '[data-behavior~="disable-field"]', function(event) {
-
-  var $self = $(this);
-  var $target = $($self.data('disable-target'));
-
-  $target.attr('disabled', 'disabled');
-
-})
-
-$('body').on('change', '[data-behavior~="reset-field"]', function(event) {
-
-  var $self = $(this);
-  var $target = $($self.data('reset-target'));
-
-  $target.prop("selected", false);
-
-})
-
-$('body').on('click', '[data-behavior~="reset-filter-fields"]', function(event) {
-
-  var $self = $(this);
-  var $component = $self.closest('table');
-  var $componentRows = $component.find('tr');
-  var $row = $self.closest('tr');
-  var $target = $row.find('option:selected');
-  var $targetDisabled = $($self.data('disable-targets'));
-
-  $target.prop("selected", false);
-  $targetDisabled.attr('disabled', true);
-  $component.removeClass('fic-inspections--status-filter-is-rejected fic-inspections--status-filter-is-not-started fic-inspections--status-filter-is-assigned fic-inspections--status-filter-is-in-progress fic-inspections--status-filter-is-complete');
-  $componentRows.removeAttr('data-filtered-by-assignee data-not-filtered-by-assignee')
-  $component.find('.fic-inspections__tfoot').attr('hidden', true);
-  $('#inspections-pagination').removeAttr('hidden');
-  $('#inspections-amt').html('1-20');
-
-})
-
-$('body').on('change', '[data-behavior~="inspections-progressing"]', function(event) {
-
-  var $self = $(this);
-  var $targetProgress = $('#' + $self.attr('data-progress-target'));
-  var $targetDisable = $($self.attr('data-disable-target'));
-  var $progressBar = $targetProgress.find('.fic-progress-target__item');
-  var classToToggle = 'fic-progress-bar--indeterminate-hidden';
-
-  $targetDisable
-    .css('opacity','.5')
-    .css('pointer-events','none')
-  ;
-
-  $progressBar.removeClass(classToToggle);
-
-  setTimeout(function () {
-    $progressBar.addClass(classToToggle);
-    $targetDisable.removeAttr('style');
-  }, 5000);
-
-})
+});

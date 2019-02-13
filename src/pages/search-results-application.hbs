@@ -1,0 +1,119 @@
+{{#> ../layouts/base title='Search Results - DIT' }}
+
+  {{#*inline "main-block"}}
+
+    <div class="fsa-section">
+      <div class="fsa-section__bd">
+        <h1>New Portfolio Search</h1>
+        
+        {{> ../components/search-bar/search-bar useButtonGroup=true setApp="fsa-btn-group__item--active" }}
+
+
+      </div>
+    </div>
+    <div class="fsa-section">
+      <div class="fsa-section__bd">
+        
+        <div class="fsa-section__bd">
+            <h2>Results - Applications</h2>
+            <div class="fsa-grid">
+							
+							<div class="fsa-grid__1/1 fsa-grid__1/2@m">
+								<select class="fsa-select" name="Options lorem">
+									<option value="Option A" selected="selected">Sort by</option>
+									<option value="Option B">Risk Score</option>
+									<option value="Option D">Name Alphabetical</option>
+									<option value="Option C"># of Vulnerabilities</option>
+								</select>
+							
+								<select class="fsa-select" name="Options lorem">
+									<option value="Option A" selected="selected">Filter by</option>
+									<option value="Option B">Ownership</option>
+									<option value="Option D">Option Two</option>
+									<option value="Option C">Option Three</option>
+								</select>
+							</div>
+
+					</div>
+
+
+
+					<table class="fsa-table fsa-table--borderless fsa-table--responsive fsa-table--responsive-horizontal fsa-table fsa-table--middle fsa-table--fixed">
+						<thead>
+							<tr>
+								<th aria-sort="descending" scope="col">
+									<button class="fsa-table__sort fsa-table__sort--descending" type="button">Name</button>
+								</th>
+								<th scope="col">
+									<button class="fsa-table__sort" type="button">Version</button>
+								</th>
+								<th scope="col">
+									<button class="fsa-table__sort" type="button">Risk Score</button>
+								</th>
+								<th scope="col">
+									<button class="fsa-table__sort" type="button">Vulnerabilities</button>
+								</th>
+								<th scope="col">
+									<button class="fsa-table__sort" type="button">Ownership</button>
+								</th>
+								<th class="fsa-text-align--right" scope="col">Actions</th>
+							</tr>
+						</thead>
+						<tbody>
+
+							<tr>
+								<td>
+									PCP II
+								</td>
+								<td>1.7.2</td>
+								<td><span class="fsa-label fsa-label--large">175</span></td>
+								<td>6</td>
+								<td>FPAC</td>
+								<td>								
+									<a class="fsa-btn fsa-btn--secondary" href="application-details.html">View Details</a>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									CPAS
+								</td>
+								<td>3.1.0</td>
+								<td><span class="fsa-label fsa-label--large fsa-label--alert">1432</span></td>
+								<td>33</td>
+								<td>FSA</td>
+								<td>								
+									<a class="fsa-btn fsa-btn--secondary" href="application-details.html">View Details</a>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									DIT
+								</td>
+								<td>0.1.5</td>
+								<td>
+									<span class="fsa-label fsa-label--large fsa-label--warning">508</span>
+								</td>
+								<td>19</td>
+								<td>FPAC</td>
+								<td>								
+									<a class="fsa-btn fsa-btn--secondary" href="application-details.html">View Details</a>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				
+				</div>
+        
+				
+
+      </div>
+    </div>
+  {{/inline}}
+
+  {{#*inline "hidden-block"}}
+    <!-- HIDDEN - FOR MODALS/GROWL CONTENT -->
+    {{> ../includes/modal-edit-application }}
+    <!-- /HIDDEN -->
+  {{/inline}}
+
+{{/../layouts/base }}

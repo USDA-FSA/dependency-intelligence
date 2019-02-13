@@ -1,9 +1,44 @@
-<div class="fsa-m-t--m">
-  {{> ../components/field/field CLASS_EXTRA="fsa-float--left" }}
+<div class="fsa-box">
+  <div class="fsa-box__content">
+    <div class="fsa-grid">
+      <div class="fsa-grid__1/1 fsa-grid__1/2@m fsa-grid__1/3@l">
+        {{#if useSelect}}
+        <select class="fsa-select fsa-select--block" name="searchtype" id="selectSearchType">
+          <option value="" selected="selected">Search for...</option>
+          <option value="search-results-application">Application</option>
+          <option value="search-results-artifact">Artifact</option>
+          <option value="search-results-vulnerability">Vulnerability</option>
+        </select>
+        {{/if}}
+        {{#if useButtonGroup}}
+        <span class="fsa-btn-group" role="group" aria-label="Type of search" id="buttonGroupSearchType">
+          <button class="fsa-btn-group__item {{setApp}}" type="button" data-val="search-results-application">Application</button>
+          <button class="fsa-btn-group__item {{setArt}}" type="button" data-val="search-results-artifact">Artifact</button> <!--optional-->
+          <button class="fsa-btn-group__item {{setVul}}" type="button" data-val="search-results-vulnerability">Vulnerability</button>
+        </span>
+        {{/if}}
 
-  <select class="fsa-select fsa-float--left" name="Options ipsum">
-    <option value="Option A" selected="selected">Dependency</option>
-    <option value="Option B">Application</option>
-  </select>
-  <button data-behavior="" class="fsa-btn fsa-btn--primary" type="button">Search</button>
+      </div>
+
+      <div class="fsa-grid__1/1 fsa-grid__1/2@m fsa-grid__2/3@l">
+        <div class="fsa-nav-global__search">
+          <form action="index.html" id="searchForm">
+            <div class="fsa-search" role="search">
+              <div class="fsa-search__bd">
+                <div class="fsa-search__entry fsa-search__entry--grow">
+                  <!--<label class="fsa-search__label fsa-search__label--sr-only" for="UNIQUE-ID-yughsjj6j">Search for Application</label>-->
+                  <input class="fsa-input fsa-search__input" id="UNIQUE-ID-yughsjj6j" type="search" name="search">
+                </div>
+                <div class="fsa-search__submit">
+                  <button class="fsa-btn fsa-search__btn" type="submit">
+                    <span class="fsa-search__text">Search</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

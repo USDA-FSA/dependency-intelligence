@@ -1,0 +1,172 @@
+{{#> ../layouts/base title='Artifact Details - DIT' }}
+
+  {{#*inline "main-block"}}
+
+    <div class="fsa-section">
+      <div class="fsa-section__bd">
+        <h1>Artifact Details</h1>
+
+				
+			</div>
+		</div>
+
+		<div class="fsa-section">
+      <div class="fsa-section__bd">
+					<table class="fsa-table fsa-table--borderless fsa-table--responsive fsa-table--responsive-horizontal fsa-table fsa-table--middle fsa-table--fixed">
+						<thead>
+							<tr>
+								<th aria-sort="descending" scope="col">
+									Group ID
+								</th>
+								<th scope="col">
+									Artifact ID
+								</th>
+								<th scope="col">
+									Version
+								</th>
+								<th scope="col">
+									Packaging
+								</th>
+								<th scope="col">
+									Risk Score
+								</th>
+								
+							</tr>
+						</thead>
+						<tbody>
+
+							<tr>
+								<td>
+									org.springframework
+								</td>
+								<td>spring-core</td>
+								<td>5.0.6.RELEASE</td>
+								<td>jar</td>
+								<td><span class="fsa-label fsa-label--large fsa-label--alert">1152</span></td>
+								
+							</tr>
+						</tbody>
+					</table>
+
+				</div>
+      </div>
+    </div>
+
+		<div class="fsa-section">
+			<div class="fsa-section__bd">
+				<div class="fsa-grid">
+					<div class="fsa-grid__1/1">
+						<div class="dit-data-box">
+							<div class="dit-data-box__title">Description</div>
+							<div class="dit-data-box__bd">
+								<p>
+									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis a arcu ullamcorper, blandit nulla in, convallis elit. Maecenas sed nulla laoreet mi aliquet viverra ac in libero. Fusce eleifend ultricies lacus, in tempus turpis lacinia nec. In non dui ligula. Ut gravida ac elit quis convallis. Phasellus nisl enim, dapibus tincidunt mi posuere, ullamcorper dapibus risus. Integer ultrices lectus condimentum tellus elementum, sit amet facilisis velit sagittis. Quisque dignissim eu est mattis blandit.
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+
+		<div class="fsa-section">
+			<div class="fsa-section__bd">
+				<div class="fsa-grid">
+					<div class="fsa-grid__1/1">
+						<div class="dit-data-box">
+							<div class="dit-data-box__title">Notes</div>
+							<div class="dit-data-box__bd">
+								<p>
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis a arcu ullamcorper, blandit nulla in, convallis elit. Maecenas sed nulla laoreet mi aliquet viverra ac in libero. Fusce eleifend ultricies lacus, in tempus turpis lacinia nec. In non dui ligula. Ut gravida ac elit quis convallis.
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+
+		<div class="fsa-section">
+			<div class="fsa-section__bd">
+				<button class="fsa-btn fsa-btn--secondary" data-behavior="open-modal" aria-controls="UNIQUE-ID-MODAL-EDIT-ARTIFACT" aria-expanded="false">Edit Vulnerablities</button>
+				<button class="fsa-btn fsa-btn--secondary">Assign To Application</button>
+
+			</div>
+		</div>
+
+		<div class="fsa-section">
+      <div class="fsa-section__bd">
+        <h2>Associated Applications</h2>
+        
+        <table class="fsa-table fsa-table--borderless fsa-table--responsive fsa-table--responsive-horizontal fsa-table fsa-table--middle fsa-table--fixed">
+						<thead>
+							<tr>
+								<th aria-sort="descending" scope="col">
+									<button class="fsa-table__sort fsa-table__sort--descending" type="button">Name</button>
+								</th>
+								<th scope="col">
+									<button class="fsa-table__sort" type="button">Version</button>
+								</th>
+								<th scope="col">
+									<button class="fsa-table__sort" type="button">Risk Score</button>
+								</th>
+								<th scope="col">
+									<button class="fsa-table__sort" type="button">Ownership</button>
+								</th>
+								<th class="fsa-text-align--right" scope="col">Actions</th>
+							</tr>
+						</thead>
+						<tbody>
+
+							<tr>
+								<td>
+									CPAS
+								</td>
+								<td>3.1.0</td>
+								<td><span class="fsa-label fsa-label--large fsa-label--alert">1432</span></td>
+								<td>FSA</td>
+								<td>								
+									<a class="fsa-btn fsa-btn--secondary" href="application-details.html">View Details</a>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									DIT
+								</td>
+								<td>0.1.5</td>
+								<td><span class="fsa-label fsa-label--large fsa-label--warning">508</span></td>
+								<td>FPAC</td>
+								<td>								
+									<a class="fsa-btn fsa-btn--secondary" href="application-details.html">View Details</a>
+								</td>
+							</tr>
+              <tr>
+								<td>
+									PCP II
+								</td>
+								<td>1.7.2</td>
+								<td><span class="fsa-label fsa-label--large">175</span></td>
+								<td>FPAC</td>
+								<td>								
+									<a class="fsa-btn fsa-btn--secondary" href="application-details.html">View Details</a>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				
+				</div>
+        
+      </div>
+    </div>
+
+  {{/inline}}
+
+  {{#*inline "hidden-block"}}
+    <!-- HIDDEN - FOR MODALS/GROWL CONTENT -->
+    {{> ../includes/modal-edit-artifact }}
+    <!-- /HIDDEN -->
+  {{/inline}}
+
+{{/../layouts/base }}
