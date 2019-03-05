@@ -28,7 +28,7 @@ window.addEventListener("load",function() {
   btnGroup.value = null;
   
   // Button Group method to reset button to default values
-  btnGroup.setButtonsDefault = function(e){
+  btnGroup.resetButtons = function(e){
     var btns = btnGroup.getElementsByTagName('button');
     var i,b;
     for (i=0; i < btns.length; i++){
@@ -48,11 +48,17 @@ window.addEventListener("load",function() {
     return btnGroup.value;
   };
 
+  btnGroup.setStyle = function( btn ){
+    b = btn.target;
+    b.classList.add('fsa-btn-group__item--active');
+    b.setAttribute('aria-selected', true);
+  }
+
   // Since the handlebars templating engine is not connected to this code, the below
   // will check if button group component is being used before trying to code to its object.
 
   if(btnGroup){
-      
+    
     var btns = btnGroup.getElementsByTagName('button');
   
     var i,b;
@@ -63,14 +69,21 @@ window.addEventListener("load",function() {
       // button click event handler that sets selected button and styles it
       b.addEventListener('click', function(e){
 
-        btnGroup.setButtonsDefault();
+        btnGroup.resetButtons();
         btnGroup.setValue( e.target.dataset.val );
-        e.target.classList.add('fsa-btn-group__item--active');
-        e.target.setAttribute('aria-selected', true);
+        btnBroup.setStyle(e.target);
+        //e.target.classList.add('fsa-btn-group__item--active');
+        //e.target.setAttribute('aria-selected', true);
 
       });
 
     }
+
+    //set All button [0] as default
+    //btnGroup.setButtonsDefault();
+    btnGroup.setValue('search-results-all');
+    btnGroup.setStyle( btns[0].target );
+
   }
 
   // code used to intercept form submission and grab search type value from component that is used

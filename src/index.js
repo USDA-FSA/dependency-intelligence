@@ -5,12 +5,13 @@
 import jQuery from 'jquery';
 
 // FSA-Style imports from node_modules - variables set in webpack.common.js
-import 'FSA-STYLE-SCSS';
-import 'FSA-STYLE-JS';
+//import 'FSA-STYLE-SCSS';
+//import 'FSA-STYLE-JS';
 
 
 // Project-specific styles
-import './stylesheets/base.scss';
+
+//import './stylesheets/base.scss';
 
 // Project-specific JS
 //import './js/docs';

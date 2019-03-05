@@ -12,6 +12,7 @@
         {{/if}}
         {{#if useButtonGroup}}
         <span class="fsa-btn-group" role="group" aria-label="Type of search" id="buttonGroupSearchType">
+          <button class="fsa-btn-group__item {{setAll}}" type="button" data-val="search-results-all">All</button>
           <button class="fsa-btn-group__item {{setApp}}" type="button" data-val="search-results-application">Application</button>
           <button class="fsa-btn-group__item {{setArt}}" type="button" data-val="search-results-artifact">Artifact</button> <!--optional-->
           <button class="fsa-btn-group__item {{setVul}}" type="button" data-val="search-results-vulnerability">Vulnerability</button>

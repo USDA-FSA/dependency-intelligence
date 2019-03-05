@@ -10,25 +10,45 @@ const path = require('path');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const WebpackPages = require('./webpack.pages.js');
 
-const fsaStyleImg = path.join(__dirname, 'node_modules/fsa-style/src/img/');
+const basePath = process.cwd();
 
+let customizations = {
+  fsaStyleImg: path.join(__dirname, 'node_modules/fsa-style/src/img/'),
+  mainStylePath: path.join(basePath, 'src/stylesheets/base.scss'),
+  fsaStylePath: path.join(basePath, 'node_modules/fsa-style/src/stylesheets/fsa-style.scss')
+};
+
+// build array of sources from fsa-style in node_modules
+let styleArray = [];
+
+styleArray.push(customizations.fsaStylePath);
+styleArray.push(customizations.mainStylePath);
+
+const postCssLoader = {
+  'loader': 'postcss-loader',
+  'options': {
+      'ident': 'extracted',
+      'sourceMap': true,
+      'plugins': [
+          require('pixrem')(), // add fallbacks for rem units
+          require('autoprefixer')({ browsers: 'last 2 versions' }) // add vendor prefixes
+      ]
+  }
+};
 
 module.exports = {
 
   devtool: 'source-map',
 
   entry:  {
-    'fsa-style': [
-      path.resolve(__dirname, 'src/index.js')
+    'main': [
+      './src/stylesheets/base.scss',
+      './src/index.js'
     ]
   },
 
   resolve: {
-    modules: ['node_modules', 'src'],
-    alias: {
-      'FSA-STYLE-SCSS' : path.join(__dirname, 'node_modules/fsa-style/src/stylesheets/fsa-style.scss'),
-      'FSA-STYLE-JS' : path.join(__dirname, 'node_modules/fsa-style/src/js/main.js')
-    }
+    modules: ['node_modules', 'src']
   },
 
   module: {
@@ -76,16 +96,79 @@ module.exports = {
             loader: "imports-loader?$=jquery"
           }
         ]
-      },
+      },      
       {
-        test: /\.scss$/,
-        use: [
-          MiniCssExtractPlugin.loader,
-          'css-loader',
-          'postcss-loader',
-          'sass-loader'
+        /* Future option - allow customization of paths to include/exclude? */
+        'exclude': styleArray,
+        'test': /\.css$/,
+        'use': [
+          {
+            'loader': 'raw-loader'
+          },
+          postCssLoader
         ]
       },
+      {
+        'exclude': styleArray,
+        'test': /\.scss$|\.sass$/,
+        'use': [
+          {
+            'loader': 'raw-loader'
+          },
+          postCssLoader,
+          {
+            'loader': 'sass-loader',
+            'options': {
+              'sourceMap': true,
+              'precision': 8,
+              'includePaths': []
+            }
+          }
+        ]
+      },
+      {
+        'include': styleArray,
+        'test': /\.css$/,
+        'use': [
+            MiniCssExtractPlugin.loader,
+            'css-loader',
+            postCssLoader
+          ]
+      },
+      {
+        'include': styleArray,
+        'test': /\.scss$|\.sass$/,
+        'use': [
+          'style-loader',
+          MiniCssExtractPlugin.loader,
+          'css-loader',
+          postCssLoader,
+          {
+            'loader': 'sass-loader',
+            'options': {
+              'sourceMap': true,
+              'precision': 8,
+              'includePaths': []
+             }
+          },
+          {
+            loader: "@epegzz/sass-vars-loader",
+            options: {
+              vars: {
+                'font-path': '\'' + path.join(basePath, 'node_modules/fsa-style/src/fonts').replace(new RegExp('\\' + path.sep, 'g'), '/') + '\' !default',
+                'image-path': '\'' + path.join(basePath, 'node_modules/fsa-style/src/img').replace(new RegExp('\\' + path.sep, 'g'), '/') + '\' !default'
+              }
+            }
+          },
+          {
+            loader: 'sass-resources-loader',
+            options: {
+              resources: styleArray
+            }
+          }
+        ]
+      },
+
       {
         test: /\.(png|svg|jpg|gif)$/,
         use: [
@@ -119,22 +202,6 @@ module.exports = {
 // Creates array for HTMLWebpackPlugin pages based on files in directory
 module.exports.plugins = WebpackPages.AddPages( './src/pages/' );
 
-module.exports.plugins.push(
-  new CopyWebpackPlugin([
-    {
-      from: './src/img',
-      to: './img/'
-    },
-    {
-      from: fsaStyleImg,
-      to: './img/'
-    },
-    {
-      from: './src/fonts',
-      to: './fonts/'
-    }
-  ])
-);
 
 module.exports.plugins.push(
   new MiniCssExtractPlugin({
