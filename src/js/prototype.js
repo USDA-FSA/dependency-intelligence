@@ -21,6 +21,11 @@ window.addEventListener("load",function() {
 // Below is code to run the search functionality to demonstrate process flow
 //
 
+  var searchTypeArray = [
+    'search-results-application',
+    'search-results-artifact',
+    'search-results-vulnerability'
+  ];
   var searchType = "";
 
   // create an object from the Button Group component
@@ -85,6 +90,14 @@ window.addEventListener("load",function() {
       searchType = btnGroup.getValue();
     }
 
+    var i;
+    var match = false;
+    for (i=0; i < searchTypeArray.length; i++){
+      if(searchTypeArray[i] == searchType) match = true;
+    }
+
+    if(!match) searchType = searchTypeArray[0];
+    
     window.location = searchType + ".html";
     // Should be triggered on form submit
     
