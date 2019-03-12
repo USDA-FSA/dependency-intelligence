@@ -13,15 +13,16 @@ const WebpackPages = require('./webpack.pages.js');
 const basePath = process.cwd();
 
 let customizations = {
-  fsaStyleImg: path.join(__dirname, 'node_modules/fsa-style/src/img/'),
+  fsaStyleImg: path.join(basePath, 'node_modules/fsa-style/src/img/'),
   mainStylePath: path.join(basePath, 'src/stylesheets/base.scss'),
-  fsaStylePath: path.join(basePath, 'node_modules/fsa-style/src/stylesheets/fsa-style.scss')
+  fsaStyleSCSSPath: path.join(basePath, 'node_modules/fsa-style/src/stylesheets/fsa-style.scss'),
+  fsaStyleJSPath: path.join(basePath, 'node_modules/fsa-style/src/js/main.js')
 };
 
 // build array of sources from fsa-style in node_modules
 let styleArray = [];
 
-styleArray.push(customizations.fsaStylePath);
+styleArray.push(customizations.fsaStyleSCSSPath);
 styleArray.push(customizations.mainStylePath);
 
 const postCssLoader = {
@@ -43,6 +44,7 @@ module.exports = {
   entry:  {
     'main': [
       './src/stylesheets/base.scss',
+      customizations.fsaStyleJSPath,
       './src/index.js'
     ]
   },
@@ -73,6 +75,7 @@ module.exports = {
           {
             loader: "handlebars-loader",
             query: {
+              inlineRequires: '\/img\/',
               partialDirs: [
                   path.join(__dirname, 'src', '/**/')
               ]
@@ -157,8 +160,14 @@ module.exports = {
             loader: "@epegzz/sass-vars-loader",
             options: {
               vars: {
-                'font-path': '\'' + path.join(basePath, 'node_modules/fsa-style/src/fonts').replace(new RegExp('\\' + path.sep, 'g'), '/') + '\' !default',
-                'image-path': '\'' + path.join(basePath, 'node_modules/fsa-style/src/img').replace(new RegExp('\\' + path.sep, 'g'), '/') + '\' !default'
+                // below uses system absolute path
+                //'font-path': '\'' + path.join(basePath, 'node_modules/fsa-style/src/fonts').replace(new RegExp('\\' + path.sep, 'g'), '/') + '\' !default',
+                //'image-path': '\'' + path.join(basePath, 'node_modules/fsa-style/src/img').replace(new RegExp('\\' + path.sep, 'g'), '/') + '\' !default'
+
+                // below uses site absolute path
+                'font-path': path.join(basePath, 'node_modules/fsa-style/src/fonts').replace(new RegExp('\\' + path.sep, 'g'), '/'),
+                'image-path': path.join(basePath, 'node_modules/fsa-style/src/img').replace(new RegExp('\\' + path.sep, 'g'), '/')
+
               }
             }
           },
@@ -176,7 +185,7 @@ module.exports = {
           {
             loader: 'file-loader',
             options: {
-              outputPath: '/img/',
+              outputPath: '../img/',
               name: '[name].[ext]',
               limit: 100000
             }
@@ -202,6 +211,15 @@ module.exports = {
 
 // Creates array for HTMLWebpackPlugin pages based on files in directory
 module.exports.plugins = WebpackPages.AddPages( './src/pages/' );
+
+module.exports.plugins.push(
+  new CopyWebpackPlugin([
+    {
+      from: customizations.fsaStyleImg,
+      to: './img/'
+    }
+  ])
+);
 
 
 module.exports.plugins.push(
