@@ -18,7 +18,6 @@
     "Francis Rupert <France.Rupert@gmail.com> (https://github.com/francisrupert)"
   ],
   "devDependencies": {
-    "angular": "^1.7.4",
     "autoprefixer": "^8.6.0",
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.4",
@@ -46,15 +45,15 @@
     "stylelint": "^9.2.1",
     "stylelint-webpack-plugin": "^0.10.5",
     "url-loader": "^1.0.1",
-    "webpack": "^4.27.1",
-    "webpack-cli": "^3.1.2",
-    "webpack-dev-server": "^3.1.14",
+    "webpack": "^4.16.5",
+    "webpack-cli": "^3.2.3",
+    "webpack-dev-server": "^3.1.5",
     "webpack-merge": "^4.1.2"
   },
   "dependencies": {
-    "@angular/cli": "^6.2.2",
-    "global": "^4.3.2",
+    "@epegzz/sass-vars-loader": "^4.3.0",
     "html-beautify-webpack-plugin": "^1.0.5",
-    "pixrem": "^4.0.1"
+    "pixrem": "^4.0.1",
+    "sass-resources-loader": "^2.0.0"
   }
 }

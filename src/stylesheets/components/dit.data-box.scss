@@ -24,8 +24,7 @@
       }
 
       &--lg{
-        font-size: $fsa-text-size--6;
-        font-weight: $font-semi-bold;
+        @include font-size( 6 );
       }
     }
   

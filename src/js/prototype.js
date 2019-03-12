@@ -30,36 +30,37 @@ window.addEventListener("load",function() {
 
   // create an object from the Button Group component
   var btnGroup = document.getElementById('buttonGroupSearchType');
-  btnGroup.value = null;
   
-  // Button Group method to reset button to default values
-  btnGroup.setButtonsDefault = function(e){
-    var btns = btnGroup.getElementsByTagName('button');
-    var i,b;
-    for (i=0; i < btns.length; i++){
-      b = btns[i];
-      b.classList.remove('fsa-btn-group__item--active');
-      b.setAttribute('aria-selected', false);
-    }
-  };
-
-  // Button Group method to SET value of group
-  btnGroup.setValue = function(v){
-    btnGroup.value = v;
-  };
-
-  // Button Group method to GET value of group
-  btnGroup.getValue = function(){
-    return btnGroup.value;
-  };
-
-  // Since the handlebars templating engine is not connected to this code, the below
-  // will check if button group component is being used before trying to code to its object.
-
-  if(btnGroup){
-      
-    var btns = btnGroup.getElementsByTagName('button');
+  if(btnGroup) {
+    
+    btnGroup.value = "";
   
+    // Button Group method to reset button to default values
+    btnGroup.setButtonsDefault = function(e){
+      var btns = btnGroup.getElementsByTagName('button');
+      var i,b;
+      for (i=0; i < btns.length; i++){
+        b = btns[i];
+        b.classList.remove('fsa-btn-group__item--active');
+        b.setAttribute('aria-selected', false);
+      }
+    };
+
+    // Button Group method to SET value of group
+    btnGroup.setValue = function(v){
+      btnGroup.value = v;
+    };
+
+    // Button Group method to GET value of group
+    btnGroup.getValue = function(){
+      return btnGroup.value;
+    };
+
+    // Since the handlebars templating engine is not connected to this code, the below
+    // will check if button group component is being used before trying to code to its object.
+
+    var btns = btnGroup.getElementsByTagName('button');
+
     var i,b;
 
     for (i=0; i < btns.length; i++){
@@ -76,31 +77,25 @@ window.addEventListener("load",function() {
       });
 
     }
+
+
+    // code used to intercept form submission and grab search type value from component that is used
+    document.getElementById('searchForm').addEventListener("submit", function(e) {
+      e.preventDefault(); // before the code
+      /* do what you want with the form */
+
+      var s = document.getElementById('selectSearchType');
+      if( s && s.options[s.selectedIndex].value != "" ){
+        searchType = s.options[s.selectedIndex].value;
+      } else {
+        searchType = btnGroup.getValue();
+      }
+
+      window.location = searchType + ".html";
+      // Should be triggered on form submit
+      
+    });
+
   }
-
-  // code used to intercept form submission and grab search type value from component that is used
-  document.getElementById('searchForm').addEventListener("submit", function(e) {
-    e.preventDefault(); // before the code
-    /* do what you want with the form */
-
-    var s = document.getElementById('selectSearchType');
-    if( s && s.options[s.selectedIndex].value != "" ){
-      searchType = s.options[s.selectedIndex].value;
-    } else {
-      searchType = btnGroup.getValue();
-    }
-
-    var i;
-    var match = false;
-    for (i=0; i < searchTypeArray.length; i++){
-      if(searchTypeArray[i] == searchType) match = true;
-    }
-
-    if(!match) searchType = searchTypeArray[0];
-    
-    window.location = searchType + ".html";
-    // Should be triggered on form submit
-    
-  });
 
 });
